@@ -17,6 +17,7 @@
   <script src="vendor/angular-load/angular-load.js"></script>
   <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
   <script src="vendor/angular-route/angular-route.js"></script>
+  <script src="vendor/angular-audio/app/angular.audio.js"></script>
   <script src="vendor/bootstrap/js/tooltip.js"></script>
   <script src="vendor/lodash/dist/lodash.min.js"></script>
   <!-- endinject -->
@@ -34,9 +35,16 @@
   <!-- endinject -->
 
 </head>
-<body ng-app="lenaslides">
+<body ng-app="lenaslides" ng-controller="ApplicationController as app">
   <lp-toc/>
-  <lp-slideshow/>
+  <lp-slideshow>
+    <lp-slide mp3="audio/test.mp3" title="Foo" ng-show="slide.isVisible()">
+      Slide 1
+    </lp-slide>
+    <lp-slide mp3="audio/test2.mp3" title="Bar" ng-show="slide.isVisible()">
+      Slide 2
+    </lp-slide>
+  </lp-slideshow>
   <lp-audioplayer/>
 </body>
 </html>

@@ -1,6 +1,6 @@
 'use strict';
 
-//var _           = require('lodash-node/modern');
+var _           = require('lodash-node/modern');
 var browserify  = require('browserify');
 //var clean       = require('gulp-clean');
 //var debug       = require('gulp-debug');
@@ -10,6 +10,7 @@ var gulp        = require('gulp');
 var gutil       = require('gulp-util');
 var http        = require('http');
 var inject      = require('gulp-inject');
+var partialify  = require('partialify');
 var source      = require('vinyl-source-stream');
 var watchify    = require('watchify');
 
@@ -34,6 +35,7 @@ var src = {
     'public/vendor/angular-sanitize/angular-sanitize.js',
     'public/vendor/angular-route/angular-route.js',
     'public/vendor/angular-ui-sortable/sortable.js',
+    'public/vendor/angular-audio/app/angular.audio.js',
     'public/vendor/bootstrap/js/tooltip.js',
     'public/vendor/lodash/dist/lodash.min.js',
 
@@ -81,11 +83,15 @@ gulp.task('serve', function () {
 function createBrowserify(){
   var b = browserify(_.extend(watchify.args, {basedir: 'public/app', debug: true}));
   b.add('./');
+  b.transform('partialify');
   return b;
 }
 
 function bundleBrowserify(b){
   return b.bundle()
+    .on('error', function(e){
+      gutil.log(gutil.colors.red('Bundle error'), e.message);
+    })
     .pipe(source('application.js'))
     .pipe(gulp.dest('public'));
 }

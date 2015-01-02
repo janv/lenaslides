@@ -1,8 +1,9 @@
 'use strict';
 
-function LpSlideController($scope){
+function LpSlideController($scope, $attrs){
   this.slideshow = $scope.slideshow;
   this.slideshow.registerSlide(this);
+  this.mp3 = $attrs.mp3;
 }
 
 LpSlideController.prototype.isVisible = function(){
@@ -11,7 +12,6 @@ LpSlideController.prototype.isVisible = function(){
 
 LpSlideController.prototype.select = function(){
   this.slideshow.setCurrent(this);
-  // Set up audio
 };
 
 

@@ -36,12 +36,11 @@
 
 </head>
 <body ng-app="lenaslides" ng-controller="ApplicationController as app">
-  <lp-toc/>
   <lp-slideshow>
-    <lp-slide mp3="bensound-acousticbreeze.mp3" title="Foo" ng-show="slide.isVisible()">
+    <lp-slide mp3="bensound-acousticbreeze.mp3" id="Foo" ng-show="slide.isVisible()">
       Slide 1
     </lp-slide>
-    <lp-slide mp3="bensound-theelevatorbossanova.mp3" title="Bar" ng-show="slide.isVisible()">
+    <lp-slide mp3="bensound-theelevatorbossanova.mp3" id="Bar" ng-show="slide.isVisible()">
       Slide 2
     </lp-slide>
   </lp-slideshow>

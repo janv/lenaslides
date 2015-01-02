@@ -1,29 +1,36 @@
 'use strict';
 
-module.exports = function ApplicationController($scope, ngAudio){
-  var app = this;
+module.exports = function ApplicationController($scope, ngAudio, $location, $route){
   this.slideshow = null;
-  this.currentSound = null;
 
-  this.playSound = playSound;
   this.stopSound = stopSound;
 
   $scope.$watch('slideshow.currentSlide', slideChanged);
-
-  function playSound(file) {
-    app.stopSound();
-    app.currentSound = ngAudio.play('/audio/'+file);
-  }
+  $scope.$on('$routeChangeSuccess', routeChanged);
 
   function stopSound() {
-    if (app.currentSound) app.currentSound.stop();
+    var audio = $scope.slideshow.currentSlide.getAudio();
+    if (audio) audio.stop();
   }
 
-  function slideChanged(newSlide) {
-    if (newSlide && newSlide.mp3) {
-      playSound(newSlide.mp3);
+  function slideChanged(newSlide, oldSlide) {
+    if (!newSlide) return;
+
+    if (oldSlide && oldSlide.getAudio()) {
+      oldSlide.getAudio().stop();
+    }
+    if (newSlide.getAudio()) {
+      newSlide.getAudio().play();
+    }
+
+    $location.path('/'+newSlide.id);
+  }
+
+  function routeChanged() {
+    if ($route.current.pathParams.slideId) {
+      $scope.slideshow.navigateToId($route.current.pathParams.slideId);
     } else {
-      stopSound();
+      $scope.slideshow.navigateToFirst();
     }
   }
 };

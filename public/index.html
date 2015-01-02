@@ -37,9 +37,29 @@
 </head>
 <body ng-app="lenaslides" ng-controller="ApplicationController as app">
   <lp-slideshow>
+    <a href="#{{slideshow.getNextId()}}" ng-if="slideshow.getNextId()">Next</a>
+    <a href="#{{slideshow.getPreviousId()}}" ng-if="slideshow.getPreviousId()">Prev</a>
+
+    <lp-slide id="intro" ng-show="slide.isVisible()">
+      Hallo
+    </lp-slide>
+
+    <lp-slide id="toc" ng-show="slide.isVisible()">
+      Toc
+      <br>
+      <a href="#/Foo">Foo</a>
+      <br>
+      <a href="#/Bar">Bar</a>
+    </lp-slide>
+
     <lp-slide mp3="bensound-acousticbreeze.mp3" id="Foo" ng-show="slide.isVisible()">
       Slide 1
     </lp-slide>
+
+    <lp-slide mp3="bensound-acousticbreeze.mp3" id="Foo" ng-show="slide.isVisible()">
+      Slide 1
+    </lp-slide>
+
     <lp-slide mp3="bensound-theelevatorbossanova.mp3" id="Bar" ng-show="slide.isVisible()">
       Slide 2
     </lp-slide>

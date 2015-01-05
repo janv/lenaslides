@@ -10,7 +10,6 @@ var gulp        = require('gulp');
 var gutil       = require('gulp-util');
 var http        = require('http');
 var inject      = require('gulp-inject');
-var partialify  = require('partialify');
 var source      = require('vinyl-source-stream');
 var watchify    = require('watchify');
 
@@ -20,34 +19,37 @@ var src = {
     'public/css/**/*'
   ],
   vendor: [
-    //'public/vendor/jquery/dist/jquery.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.core.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.position.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.widget.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.mouse.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.sortable.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.draggable.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.autocomplete.js',
-    //'public/vendor/jquery-ui/ui/jquery.ui.datepicker.js',
-    'public/vendor/angular/angular.js',
-    'public/vendor/angular-animate/angular-animate.js',
-    //'public/vendor/angular-load/angular-load.js',
-    //'public/vendor/angular-sanitize/angular-sanitize.js',
-    'public/vendor/angular-route/angular-route.js',
-    //'public/vendor/angular-ui-sortable/sortable.js',
-    'public/vendor/angular-audio/app/angular.audio.js',
-    //'public/vendor/bootstrap/js/tooltip.js',
-    'public/vendor/lodash/dist/lodash.min.js',
+    //'bower_components/jquery/dist/jquery.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.core.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.position.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.widget.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.mouse.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.sortable.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.draggable.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.autocomplete.js',
+    //'bower_components/jquery-ui/ui/jquery.ui.datepicker.js',
+    'bower_components/angular/angular.js',
+    'bower_components/angular-animate/angular-animate.js',
+    //'bower_components/angular-load/angular-load.js',
+    //'bower_components/angular-sanitize/angular-sanitize.js',
+    'bower_components/angular-route/angular-route.js',
+    //'bower_components/angular-ui-sortable/sortable.js',
+    'bower_components/angular-audio/app/angular.audio.js',
+    //'bower_components/bootstrap/js/tooltip.js',
+    'bower_components/lodash/dist/lodash.min.js',
 
-    //'public/vendor/jquery-ui/themes/base/jquery-ui.css',
-    //'public/vendor/jquery-ui/themes/base/jquery.ui.autocomplete.css',
-    //'public/vendor/jquery-ui/themes/base/jquery.ui.datepicker.css',
+    //'bower_components/jquery-ui/themes/base/jquery-ui.css',
+    //'bower_components/jquery-ui/themes/base/jquery.ui.autocomplete.css',
+    //'bower_components/jquery-ui/themes/base/jquery.ui.datepicker.css',
   ],
 };
 
 gulp.task('vendor', function () {
+  var vendorFiles = gulp.src(src.vendor)
+    .pipe(gulp.dest('public/vendor'));
+
   return gulp.src('public/index.html')
-    .pipe(inject(gulp.src(src.vendor, {read:false}), {name: 'vendor', relative: 'true'}))
+    .pipe(inject(vendorFiles, {name: 'vendor', relative: 'true'}))
     .pipe(gulp.dest('public'));
 });
 

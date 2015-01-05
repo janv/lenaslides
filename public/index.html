@@ -11,6 +11,9 @@
   <!-- endinject -->
   <!-- vendor:css -->
   <!-- endinject -->
+  <link rel="stylesheet" href="vendor/html5reset-1.6.1.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css" type="text/css" media="screen" title="no title" charset="utf-8">
   
   <!-- inject:js -->
   <!-- endinject -->
@@ -22,28 +25,42 @@
 </head>
 <body ng-app="lenaslides" ng-controller="ApplicationController as app">
   <lp-slideshow>
-    <a href="#{{slideshow.getNextId()}}" ng-if="slideshow.getNextId()">Next</a>
-    <a href="#{{slideshow.getPreviousId()}}" ng-if="slideshow.getPreviousId()">Prev</a>
-
-    <lp-slide id="intro" ng-show="slide.isVisible()">
-      Hallo
+    <lp-slide id="1" ng-show="slide.isVisible()" mp3="cendres.mp3">
+      <video autoplay loop poster="video/1.jpg" class="fill-background">
+        <source src="video/1.mp4" type="video/mp4">
+      </video>
     </lp-slide>
 
-    <lp-slide id="toc" ng-show="slide.isVisible()">
-      Toc
-      <br>
-      <a href="#/Foo">Foo</a>
-      <br>
-      <a href="#/Bar">Bar</a>
+    <lp-slide id="2" ng-show="slide.isVisible()" mp3="cendres.mp3">
+      <video autoplay loop poster="video/2.jpg" class="fill-background">
+        <source src="video/2.mp4" type="video/mp4">
+      </video>
+
+      <div class="foreground">
+        <div class="centered-text">
+          <h2>Foobar</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+      </div>
     </lp-slide>
 
-    <lp-slide mp3="bensound-acousticbreeze.mp3" id="Foo" ng-show="slide.isVisible()">
-      Slide 1
+    <lp-slide id="3" ng-show="slide.isVisible()" mp3="cendres.mp3">
+      <video autoplay loop poster="video/3.jpg" class="fill-background">
+        <source src="video/3.mp4" type="video/mp4">
+      </video>
     </lp-slide>
 
-    <lp-slide mp3="bensound-theelevatorbossanova.mp3" id="Bar" ng-show="slide.isVisible()">
-      Slide 2
-    </lp-slide>
+    <a class="nav-button fading nav-left" href="#{{slideshow.getPreviousId()}}" ng-if="slideshow.getPreviousId()">
+      <span>◀︎</span>
+    </a>
+    <a class="nav-button fading nav-right" href="#{{slideshow.getNextId()}}" ng-if="slideshow.getNextId()">
+      <span>▶︎</span>
+    </a>
   </lp-slideshow>
   <lp-audioplayer/>
 </body>

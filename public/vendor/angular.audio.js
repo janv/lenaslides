@@ -98,13 +98,6 @@ angular.module('ngAudio', [])
 .factory('NgAudioObject', ['cleverAudioFindingService', '$rootScope', '$interval', '$timeout', 'ngAudioGlobals', function(cleverAudioFindingService, $rootScope, $interval, $timeout, ngAudioGlobals) {
     return function(id) {
 
-        window.addEventListener("click",function twiddle(){
-            audio.play();
-            audio.pause();
-            window.removeEventListener("click",twiddle);
-        });
-
-
         var $audioWatch,
             $willPlay = false,
             $willPause = false,

@@ -25,13 +25,13 @@
 </head>
 <body ng-app="lenaslides" ng-controller="ApplicationController as app">
   <lp-slideshow>
-    <lp-slide id="1" ng-show="slide.isVisible()" mp3="cendres.mp3">
+    <lp-slide id="1" ng-show="slide.isVisible()">
       <video autoplay loop poster="video/1.jpg" class="fill-background">
         <source src="video/1.mp4" type="video/mp4">
       </video>
     </lp-slide>
 
-    <lp-slide id="2" ng-show="slide.isVisible()" mp3="cendres.mp3">
+    <lp-slide id="2" ng-show="slide.isVisible()">
       <video autoplay loop poster="video/2.jpg" class="fill-background">
         <source src="video/2.mp4" type="video/mp4">
       </video>
@@ -49,7 +49,7 @@
       </div>
     </lp-slide>
 
-    <lp-slide id="3" ng-show="slide.isVisible()" mp3="cendres.mp3">
+    <lp-slide id="3" ng-show="slide.isVisible()">
       <video autoplay loop poster="video/3.jpg" class="fill-background">
         <source src="video/3.mp4" type="video/mp4">
       </video>

@@ -1,3 +1,6 @@
-<a ng-click="app.stopSound()" class="fading">
-  <i class="mute-button fa fa-pause"></i>
-</a>
+<ul class="song-list">
+  <li class="song-list-item cf" ng-repeat="song in player.songs" ng-click="player.toggleSong(song)" ng-class="{'current-song': player.isCurrent(song)}">
+    <i class="song-button fa" ng-class="player.buttonClass(song)"></i>
+    <span class="song-title">{{song.title}}</span>
+  </li>
+</ul>

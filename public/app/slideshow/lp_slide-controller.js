@@ -21,7 +21,7 @@ LpSlideController.prototype.select = function(){
 LpSlideController.prototype.getAudio = function(){
   if (this.audio === undefined) {
     if (this.mp3) {
-      this.audio = this._ngAudio.load('/audio/'+this.mp3);
+      this.audio = this._ngAudio.load('audio/'+this.mp3);
       this.audio.loop = true;
     } else {
       this.audio = null;

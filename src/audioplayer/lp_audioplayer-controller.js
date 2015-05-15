@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = function LpAudioplayerController(ngAudio, $scope){
+var _ = require('lodash-node/modern');
+
+function LpAudioplayerController(ngAudio, $scope){
   var controller = this;
   this.songs = [
     {
@@ -92,4 +94,8 @@ module.exports = function LpAudioplayerController(ngAudio, $scope){
   function buttonClass(song) {
     return isPlaying(song) ? 'fa-pause' : 'fa-play';
   }
-};
+}
+
+LpAudioplayerController.$inject = ['ngAudio', '$scope'];
+
+module.exports = LpAudioplayerController;

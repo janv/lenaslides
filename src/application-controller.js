@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ApplicationController($scope, ngAudio, $location, $route){
+function ApplicationController($scope, ngAudio, $location, $route){
   this.slideshow = null;
 
   $scope.$watch('slideshow.currentSlide', slideChanged);
@@ -18,4 +18,8 @@ module.exports = function ApplicationController($scope, ngAudio, $location, $rou
       $scope.slideshow.navigateToFirst();
     }
   }
-};
+}
+
+ApplicationController.$inject = ['$scope', 'ngAudio', '$location', '$route'];
+
+module.exports = ApplicationController;

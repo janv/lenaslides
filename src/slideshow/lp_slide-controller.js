@@ -14,4 +14,6 @@ LpSlideController.prototype.select = function(){
   this.slideshow.setCurrent(this);
 };
 
+LpSlideController.$inject = ['$scope', '$attrs'];
+
 module.exports = LpSlideController;

@@ -1,11 +1,15 @@
 'use strict';
 
+var _ = require('lodash-node/modern');
+
 function LpSlideshowController($scope){
   this.slides = [];
   this.currentSlide = null;
 
   $scope.app.slideshow = this;
 }
+
+LpSlideshowController.$inject = ['$scope'];
 
 LpSlideshowController.prototype.registerSlide = function(slide){
   this.slides.push(slide);

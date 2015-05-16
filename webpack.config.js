@@ -1,15 +1,20 @@
 'use strict';
 
+var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'public/application.js'
+    path: path.resolve('./public'),
+    publicPath: '/public/',
+    filename: 'application.js'
   },
   module: {
     loaders: [
-      {test: /\.html$/, loader: 'html'}
+      {test: /\.html$/, loader: 'html'},
+      {test: /\.sass$/, loader: 'style!css!sass?indentedSyntax'},
+      {test: /\.png$/,  loader: 'url-loader?limit=10000' },
     ]
   },
   //plugins: [

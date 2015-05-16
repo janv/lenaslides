@@ -1,0 +1,121 @@
+.cf:before,
+.cf:after
+  content: " "   // 1
+  display: table // 2
+.cf:after
+  clear: both
+
+body
+  width: 100%
+  height: 100%
+  background-color: black
+
+lp-slideshow, lp-slide
+  display: block
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
+.nav-button
+  display: flex
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100px
+  align-items: center
+  font-size: 50px
+  text-decoration: none
+  color: black
+
+.fading
+  opacity: 0.1
+  transition: opacity 0.3s
+  &:hover
+    opacity: 1
+
+.nav-left
+  left: 0
+  justify-content: flex-end
+
+.nav-right
+  right: 0
+  justify-content: flex-start
+
+.fill-background
+  position: absolute
+  z-index: -1
+  min-width: 100%
+  min-height: 100%
+  top: 50%
+  left: 50%
+  -webkit-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+
+.pattern-overlay
+  position: absolute
+  display: block
+  width: 100%
+  height: 100%
+  background: url('../images/pattern1.png') repeat
+
+.foreground
+  position: absolute
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  color: #EEE
+  line-height: 1.5
+  font-family: Georgia
+  font-size: 20px
+  h2
+    font-size: 120%
+    padding-bottom: 10%
+
+.centered-text
+  align-self: center
+  width: 50%
+  max-width: 500px
+
+lp-audioplayer
+  display: block
+  position: absolute
+  width: 100%
+  bottom: 0
+
+.song-list
+  width: 50%
+  max-width: 400px
+  margin: auto
+  font-family: Helvetica, Arial
+  font-size: 15px
+  line-height: 30px
+  color: white
+  list-style-type: none
+  background-color: #222
+  transition: opacity 0.3s
+  opacity: 0.6
+  &:hover
+    height: initial
+    opacity: 1
+
+.song-list-item
+  display: none
+  clear: both
+  cursor: pointer
+  padding: 0 1em
+  &:hover
+    background-color: #111
+
+.song-list:hover .song-list-item, .current-song
+  display: block
+
+.song-button
+  float: left
+  line-height: inherit
+
+.song-title
+  float: right

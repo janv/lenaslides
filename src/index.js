@@ -6,6 +6,7 @@ var angular = require('angular');
 // Global requires:
 require('../vendor/angular.audio.js');
 require('angular-route');
+require('../stylesheets/main.sass');
 
 var submodules = [
   require('./audioplayer'),
@@ -23,5 +24,3 @@ lenaslides.config(['$routeProvider', function($routeProvider){
   $routeProvider.when('/:slideId', {});
   $routeProvider.otherwise({});
 }]);
-
-module.exports = lenaslides;

@@ -19,6 +19,9 @@
     "file-loader": "~0.8.1",
     "url-loader": "~0.5.5"
   },
+  "scripts": {
+    "webpack": "webpack-dev-server --content-base public" 
+  },
   "author": "Jan Varwig",
   "license": "MIT",
   "devDependencies": {

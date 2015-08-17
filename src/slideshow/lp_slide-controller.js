@@ -1,9 +1,14 @@
 'use strict';
 
 function LpSlideController($scope, $attrs){
+  var controller = this;
   this.id = $attrs.id;
   this.slideshow = $scope.slideshow;
   this.slideshow.registerSlide(this);
+
+  $attrs.$observe('id', function(id){
+    controller.id = id;
+  });
 }
 
 LpSlideController.prototype.isVisible = function(){

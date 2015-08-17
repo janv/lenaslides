@@ -30,11 +30,12 @@ LpSlideshowController.prototype.navigateToFirst = function(){
 
 LpSlideshowController.prototype.getNextId = function(){
   var currentIndex = _.findIndex(this.slides, this.currentSlide);
-  return _.result(this.slides[currentIndex+1], 'id');
+  return _.result(this.slides[(currentIndex+1) % this.slides.length], 'id');
 };
 
 LpSlideshowController.prototype.getPreviousId = function(){
   var currentIndex = _.findIndex(this.slides, this.currentSlide);
+  if (currentIndex === 0) currentIndex = this.slides.length;
   return _.result(this.slides[currentIndex-1], 'id');
 };
 

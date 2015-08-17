@@ -6,18 +6,23 @@ function LpAudioplayerController(ngAudio, $scope){
   var controller = this;
   this.songs = [
     {
-      title: 'Des Cendres',
-      file: 'cendres.mp3',
+      title: 'Smells Like... The End of (Green) Tunnel',
+      file: 'tunnel.mp3',
       audioObject: null
     },
     {
-      title: 'Acoustic Breeze',
-      file: 'bensound-acousticbreeze.mp3',
+      title: 'Iceberg',
+      file: 'iceberg.mp3',
       audioObject: null
     },
     {
-      title: 'The Elevator Bossa Nova',
-      file: 'bensound-theelevatorbossanova.mp3',
+      title: 'Polar Night',
+      file: 'polar_night.mp3',
+      audioObject: null
+    },
+    {
+      title: 'Snowstorm',
+      file: 'snowstorm.mp3',
       audioObject: null
     },
   ];

@@ -16,6 +16,11 @@ module.exports = {
   },
   module: {
     loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loaders: ['react-hot', 'babel']
+      },
       {test: /\.html$/, loader: 'html'},
       {test: /\.sass$/, loader: 'style!css!sass?indentedSyntax'},
       {test: /\.png$/,  loader: 'url-loader?limit=10000' }

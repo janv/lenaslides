@@ -8,23 +8,5 @@
   
   <script src="application.js"></script>
 </head>
-<body ng-app="lenaslides" ng-controller="ApplicationController as app">
-  <lp-slideshow>
-
-    <lp-slide id="{{slideData.id}}" ng-show="slide.isVisible()" ng-repeat='slideData in app.slideDatas track by $index'>
-      <div class="pattern-overlay"></div>
-      <video preload="none" poster="{{slideData.poster}}" class="fill-background">
-        <source src="{{slideData.video}}" type="video/mp4">
-      </video>
-    </lp-slide>
-
-    <a class="nav-button fading nav-left" href="#{{slideshow.getPreviousId()}}" ng-if="slideshow.getPreviousId()">
-      <span>◀︎</span>
-    </a>
-    <a class="nav-button fading nav-right" href="#{{slideshow.getNextId()}}" ng-if="slideshow.getNextId()">
-      <span>▶︎</span>
-    </a>
-  </lp-slideshow>
-  <lp-audioplayer/>
-</body>
+<body> </body>
 </html>

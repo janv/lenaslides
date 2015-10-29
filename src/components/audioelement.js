@@ -7,13 +7,11 @@ export default class AudioElement extends React.Component {
   }
 
   componentDidMount(){
-    if (this.props.playing) {
-      this.play();
-    }
+    if (this.props.playing) this.play();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.playing) {
+  componentDidUpdate(){
+    if (this.props.playing) {
       this.play();
     } else {
       this.stop();

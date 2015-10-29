@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export default function slide(state = initialState, action){
-  switch (action.typ) {
+  switch (action.type) {
     case 'NEXT_SLIDE':
       var nextIndex = (state.currentSlideIndex + 1) % state.slideNumbers.length;
       return {

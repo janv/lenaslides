@@ -7,21 +7,21 @@ export default class Audioplayer extends React.Component {
   render(){
     const {audio} = this.props;
     const currentSong = audio.songs[audio.selectedSong];
+    const src = currentSong && ('/audio/' + currentSong.file);
 
     return <div>
       <ul className="song-list">
         {audio.songs.map((song, i) => {
           const isSelected = audio.selectedSong === i;
           const playing = isSelected && audio.playing;
-          const src = '/audio/' + song.file;
 
           return <li className={songClass(isSelected)} onClick={() => this.toggleSong(i)}>
             <i className={buttonClass(playing)}></i>
             <span className="song-title">{song.title}</span>
-            <AudioElement src={src} ref="audio" playing={playing}/>
           </li>;
         })}
       </ul>
+      <AudioElement src={src} ref="audio" playing={audio.playing}/>
     </div>;
   }
 

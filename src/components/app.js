@@ -5,9 +5,9 @@ import Audioplayer from './audioplayer';
 
 class App extends React.Component {
   render(){
-    const {dispatch, audio} = this.props;
+    const {dispatch, audio, slide} = this.props;
     return <div>
-      <Slideshow/>
+      <Slideshow dispatch={dispatch} slide={slide}/>
       <Audioplayer dispatch={dispatch} audio={audio}/>
     </div>;
   }

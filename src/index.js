@@ -1,6 +1,7 @@
 import React from 'react';
 import App from './containers/app-container.js';
 import $ from 'jquery';
+require('../stylesheets/main.sass');
 
 $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
   var token;

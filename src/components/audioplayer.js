@@ -9,7 +9,7 @@ export default class Audioplayer extends React.Component {
     const currentSong = audio.songs[audio.selectedSong];
     const src = currentSong && ('/audio/' + currentSong.file);
 
-    return <div>
+    return <div className="lp-audioplayer">
       <ul className="song-list">
         {audio.songs.map((song, i) => {
           const isSelected = audio.selectedSong === i;
@@ -32,7 +32,7 @@ export default class Audioplayer extends React.Component {
 }
 
 function songClass(isSelected) {
-  return 'song-list-item cf' + isSelected ? ' current-song' : '';
+  return 'song-list-item cf' + (isSelected ? ' current-song' : '');
 }
 
 function buttonClass(isPlaying) {

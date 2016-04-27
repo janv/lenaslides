@@ -21,7 +21,7 @@ const initialState = {
       audioObject: null
     }
   ],
-  selectedSong: null,
+  selectedSong: 0,
   playing: true
 };
 
